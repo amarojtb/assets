@@ -1,0 +1,98 @@
+@import '../../public/css/utils/variables.css';
+
+.checkbox {
+  @nest & [type='checkbox'] {
+    @nest
+    &:not(:checked),
+    &:checked {
+      visibility: hidden;
+
+      /* Remove default Checkbox Buttons */
+      position: absolute;
+      left: -9999px;
+
+      @nest
+      & + label,
+      & + input[type='hidden'] + label {
+        display: inline-block;
+        position: relative;
+        padding-left: var(--spacing-large);
+        user-select: none;
+
+        @nest &::before {
+          content: '';
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          left: 0;
+          width: var(--spacing-medium);
+          height: var(--spacing-medium);
+          margin-top: var(--spacing-xxx-small);
+          border-width: var(--border-width-thin);
+          border-style: solid;
+          border-radius: 1px;
+          border-color: var(--medium-gray);
+          background-color: var(--white);
+        }
+      }
+    }
+
+    @nest
+    &:checked + label::after,
+    &:checked + input[type='hidden'] + label::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: var(--spacing-xxx-small);
+      width: var(--spacing-small);
+      height: 0.375rem;
+      transform: rotate(-50deg);
+      transform-origin: 100% 100% 0;
+      border-bottom: var(--border-width-thick) solid var(--text-color);
+      border-left: var(--border-width-thick) solid var(--text-color);
+    }
+
+    @nest
+    &:indeterminate + label::after,
+    &:indeterminate + input[type='hidden'] + label::after {
+      content: '';
+      position: absolute;
+      top: 0.5625rem;
+      left: 0.1875rem;
+      width: 0.625rem;
+      height: var(--spacing-xxx-small);
+      background-color: var(--text-color);
+    }
+
+    /* Disabled style */
+    @nest &:disabled {
+      @nest
+      & + label,
+      & + input[type='hidden'] + label {
+        color: var(--gray);
+      }
+
+      @nest
+      &:checked + label::before,
+      &:checked + input[type='hidden'] + label::before {
+        border-right-color: rgba(0, 0, 0, 0.26);
+        border-bottom-color: rgba(0, 0, 0, 0.26);
+      }
+
+      @nest
+      &:not(:checked) + label::before,
+      &:not(:checked) + input[type='hidden'] + label::before {
+        border-color: transparent;
+        background-color: rgba(0, 0, 0, 0.26);
+      }
+    }
+
+    @nest
+    &:not(:disabled) + label,
+    &:not(:disabled) + input[type='hidden'] + label {
+      cursor: pointer;
+      line-height: 1.5;
+    }
+  }
+}

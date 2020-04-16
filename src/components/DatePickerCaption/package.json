@@ -1,0 +1,6 @@
+{
+  "name": "DatePickerCaption",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DatePickerCaption.jsx"
+}

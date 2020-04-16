@@ -1,0 +1,15 @@
+@import '../../public/css/utils/variables.css';
+
+.label {
+  display: inline-block;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  background-color: var(--gray-light);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.6;
+
+  @nest &:not(:last-child) {
+    margin-right: 0.25rem;
+  }
+}

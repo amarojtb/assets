@@ -1,0 +1,44 @@
+@import '../../public/css/utils/variables.css';
+
+.c-template {
+  position: relative;
+  background-size: cover;
+  cursor: pointer;
+
+  @nest &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  @nest &:focus {
+    box-shadow: var(--shadow-button-focus);
+  }
+
+  @nest
+  &:hover,
+  &.is-selected {
+    box-shadow: 0 0 0 6px #ef6b30 inset;
+  }
+}
+
+.c-template__content {
+  position: absolute;
+  z-index: var(--z-index-default);
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 70%;
+  padding-top: var(--spacing-large);
+  padding-right: var(--spacing-small);
+  padding-left: var(--spacing-small);
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.c-template__name {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  text-align: center;
+}

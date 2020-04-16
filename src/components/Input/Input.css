@@ -1,0 +1,89 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #INPUT
+   ========================================================================== */
+
+.c-input {
+  display: inline-block;
+  min-height:
+    calc(
+      var(--height-input) + var(--border-width-thin) * 2
+    );
+
+  /* For IE */
+  padding: 0 var(--spacing-medium) 0 var(--spacing-small);
+  line-height: var(--height-input);
+
+  @mixin form-states;
+
+  @nest &:read-only {
+    @mixin button-interactions;
+  }
+
+  @nest .has-error & {
+    @mixin form-input-error;
+
+    @nest & .c-input__icon {
+      fill: var(--color-text-error);
+    }
+  }
+}
+
+.c-input-has-icon {
+  position: relative;
+
+  @nest & .c-input__icon {
+    position: absolute;
+    top: 50%;
+    width: var(--square-icon-medium-content);
+    height: var(--square-icon-medium-content);
+    margin-top: calc(var(--square-icon-medium-content) / 2 * -1);
+  }
+}
+
+.c-input-has-icon--left {
+  @nest & .c-input__icon {
+    left: var(--spacing-small);
+  }
+
+  @nest & .c-input {
+    padding-left: var(--spacing-x-large);
+  }
+}
+
+.c-input-has-icon--right {
+  @nest & .c-input__icon {
+    right: var(--spacing-small);
+  }
+
+  @nest & .c-input {
+    padding-right: var(--spacing-x-large);
+  }
+}
+
+.c-input-has-icon--left-right {
+  @nest & .c-input__icon--left {
+    left: var(--spacing-small);
+  }
+
+  @nest & .c-input__icon--right {
+    right: var(--spacing-small);
+  }
+
+  @nest & .c-input {
+    padding: 0 var(--spacing-x-large);
+  }
+}
+
+.has-error {
+  @nest & .c-input__icon {
+    fill: var(--color-text-error);
+  }
+}
+
+.c-input__icon--clearable {
+  padding: 0;
+  color: var(--gray);
+  line-height: var(--line-height-reset);
+}

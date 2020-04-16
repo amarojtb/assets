@@ -1,0 +1,78 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #SELECT
+   ========================================================================== */
+
+.c-select {
+  height: calc(var(--height-input) + var(--border-width-thin) * 2);
+
+  @mixin form-states;
+
+  @nest
+  &[size],
+  &[multiple] {
+    height: inherit;
+    min-height: calc(var(--height-input) + var(--border-width-thin) * 2);
+
+    @nest & option {
+      padding: var(--spacing-x-small);
+    }
+  }
+
+  @nest .has-error & {
+    border-color: var(--color-border-error);
+    background-color: var(--color-background-input);
+    background-clip: padding-box;
+    box-shadow: var(--color-border-error) 0 0 0 var(--border-width-thin) inset;
+
+    @nest
+    &:focus,
+    &:active {
+      box-shadow:
+        var(--color-border-error) 0 0 0 var(--border-width-thin) inset,
+        var(--shadow-button-focus);
+    }
+  }
+}
+
+.c-select_container {
+  position: relative;
+
+  @nest & .c-select {
+    padding-right: var(--spacing-large);
+    padding-left: var(--spacing-x-small);
+
+    /* stylelint-disable property-no-vendor-prefix */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable property-no-vendor-prefix */
+
+    @nest &::-ms-expand {
+      display: none;
+    }
+  }
+
+  @nest
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: var(--spacing-x-small);
+    width: 0;
+    height: 0;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+  }
+
+  @nest &::before {
+    top: calc(var(--line-height-button-small) / 2 - 6px);
+    border-bottom: 5px solid var(--color-background-inverse);
+  }
+
+  @nest &::after {
+    bottom: calc(var(--line-height-button-small) / 2 - 6px);
+    border-top: 5px solid var(--color-background-inverse);
+  }
+}

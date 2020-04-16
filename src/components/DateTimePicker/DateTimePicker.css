@@ -1,0 +1,11 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #DATE TIME PICKER
+   ========================================================================== */
+
+.c-date-time-picker {
+  @nest & .c-time-picker {
+    text-align: center;
+  }
+}

@@ -1,0 +1,133 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #FORM
+   ========================================================================== */
+
+/* STACKED FORM */
+
+.c-form--stacked .c-form-element {
+  display: block;
+
+  @nest & + .c-form-element {
+    margin-top: var(--spacing-small);
+  }
+
+  @nest
+  & .c-checkbox,
+  & .c-radio {
+    display: block;
+  }
+}
+
+/* COMPOUND FORM */
+
+.c-form--compound {
+  @nest & .c-form-element {
+    width: 100%;
+  }
+
+  @nest & .c-form-element__row {
+    margin-bottom: var(--spacing-small);
+    @nest &.inline .c-form-element {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @nest & .c-form-element__control {
+        width: 100%;
+      }
+      @nest & .c-form-element__label {
+        flex: none;
+        width: auto;
+      }
+      @nest & .c-form-element__control {
+        flex: 3;
+        width: 100%;
+      }
+      @nest & .c-form-element__help {
+        display: block;
+      }
+      @nest &.has-error {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+/* HORIZONTAL */
+
+.c-form--horizontal {
+  @media (--min-md) {
+    text-align: right;
+  }
+
+  @nest & .c-form-element {
+    @nest
+    & > .c-form-element__legend,
+    & > .c-form-element__label {
+      @media (--min-md) {
+        display: inline-block;
+        position: relative;
+        top: 0.375rem;
+        width: 33%;
+        margin-right: 0;
+        margin-bottom: 0;
+        float: left;
+        text-align: right;
+        vertical-align: top;
+      }
+    }
+
+    @nest & + .c-form-element {
+      margin-top: var(--spacing-small);
+
+      @media (--min-sm) {
+        margin-top: var(--spacing-x-small);
+      }
+    }
+  }
+
+  @nest & .c-form-element__control {
+    width: 100%;
+
+    @media (--min-md) {
+      display: inline-block;
+      width: 66%;
+      text-align: left;
+    }
+  }
+}
+
+/* INLINE */
+
+.c-form--inline {
+  @nest
+  & .c-form-element,
+  & .c-form-element__label,
+  & .c-form-element__control {
+    display: block;
+  }
+
+  @nest & .c-form-element + .c-form-element {
+    margin-top: var(--spacing-small);
+  }
+
+  @media (--min-sm) {
+    @nest & .c-form-element {
+      margin-right: var(--spacing-x-small);
+
+      @nest & + .c-form-element {
+        margin-top: 0;
+      }
+    }
+
+    @nest
+    & .c-form-element,
+    & .c-form-element__label,
+    & .c-form-element__control {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+  }
+}

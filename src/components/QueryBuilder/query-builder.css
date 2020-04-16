@@ -1,0 +1,177 @@
+@import '../../../Content/public/css/utils/variables.css';
+
+.queryBuilder {
+  height: 24rem;
+  overflow-y: auto;
+}
+
+.queryBuilder > .ruleGroup {
+  margin: 0;
+}
+
+.c-query-builder__reset {
+  float: left;
+}
+
+.operator_label {
+  display: inline-block;
+  width: 77px;
+  padding: 8.5px 4px;
+  border: none !important;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @nest &:after {
+    content: '';
+    position: absolute;
+    top: 37px;
+    left: 41px;
+    width: 3px;
+    height: 13px;
+    background: inherit;
+  }
+}
+
+.group_operator_label {
+  display: inline-block;
+  position: absolute;
+  top: -1px;
+  left: -78px;
+  width: 77px;
+  height: 100.5%;
+  padding: 6px;
+  border: none !important;
+  text-align: center;
+  text-transform: uppercase;
+
+  @nest &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 37px;
+    width: 3px;
+    height: 10px;
+    background: inherit;
+  }
+
+  @nest & .group_operator_parent-text {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+  }
+}
+
+.c-query_builder-value_editor {
+  display: inline-block;
+  width: 49%;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.ruleGroup {
+  position: relative;
+  margin-left: 5.2rem;
+  padding: 0.5rem;
+  border: dashed 1px var(--silver);
+  background: var(--gray-lighter);
+  box-shadow: 0 0 5px var(--gray-medium-light);
+
+  @nest & .ruleGroup__actions {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+
+    @nest & .ruleGroup__actions-selector {
+      display: table-cell;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    @nest & .ruleGroup__actions-wrapper {
+      display: table-cell;
+      text-align: right;
+    }
+  }
+
+  @nest & .ruleGroup-combinators {
+    display: inline-block;
+    width: 70%;
+    margin-right: 0.25rem;
+    vertical-align: top;
+  }
+
+  @nest & .rule-operators {
+    display: inline-block;
+    width: 15%;
+    margin-right: 0.25rem;
+    vertical-align: top;
+  }
+
+  @nest & .rule-fields {
+    display: inline-block;
+    width: 25%;
+    margin-right: 0.25rem;
+    vertical-align: top;
+  }
+
+  @nest &:last-child > .group_operator_label:after {
+    content: none;
+  }
+}
+
+.ruleGroup .ruleGroup {
+  margin-top: 0.5rem;
+}
+
+.rule {
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+
+  @nest & .c-date-input {
+    display: inline-block;
+    width: 25%;
+    margin-right: 0.25rem;
+    vertical-align: top;
+
+    @nest & .c-input {
+      width: 100%;
+    }
+  }
+
+  @nest &:last-child > .operator_label:after {
+    content: none;
+  }
+
+  @nest & .rule__delete {
+    display: inline-block;
+    position: absolute;
+    right: -7px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+}
+
+.rule-highlight {
+  background: var(--twitter-color);
+  box-shadow: 0 0 5px var(--twitter-color);
+}
+
+.c-query-builder_help {
+  position: relative;
+  top: 30px;
+  padding: 0 8px;
+  float: right;
+  background: var(--twitter-color);
+  color: var(--white);
+
+  @nest &:hover {
+    color: var(--white);
+  }
+
+  @nest &:focus {
+    color: var(--white);
+  }
+}

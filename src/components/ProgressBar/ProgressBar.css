@@ -1,0 +1,36 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #PROGRESS BAR
+   ========================================================================== */
+
+.c-progress-bar {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: 0;
+  background: var(--light-gray);
+  appearance: none;
+}
+
+.c-progress-bar--x-small {
+  height: 0.125rem;
+}
+
+.c-progress-bar--small {
+  height: 0.25rem;
+}
+
+.c-progress-bar--medium {
+  height: 0.5rem;
+}
+
+.c-progress-bar--large {
+  height: 0.75rem;
+}
+
+.c-progress-bar__value {
+  display: block;
+  height: 100%;
+  background: var(--gray);
+}

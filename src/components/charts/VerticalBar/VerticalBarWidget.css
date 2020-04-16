@@ -1,0 +1,30 @@
+@import '../../../public/css/utils/variables.css';
+
+.c-vertical-bar-widget_wrapper {
+  height: 100%;
+}
+
+.c-vertical-bar-widget-legend {
+  height: 1.5rem;
+  padding-right: var(--spacing-medium);
+  padding-left: var(--spacing-medium);
+}
+
+.c-vertical-bar-widget-legend__list {
+  margin-bottom: 0;
+}
+
+.c-vertical-bar-widget-legend__item {
+  display: inline-block;
+  position: relative;
+  font-size: var(--font-size-small);
+  text-align: center;
+}
+
+.c-vertical-bar-widget-legend__item-color {
+  display: inline-block;
+  width: var(--square-icon-small-content);
+  height: var(--square-icon-small-content);
+  margin-right: var(--spacing-xx-small);
+  vertical-align: middle;
+}

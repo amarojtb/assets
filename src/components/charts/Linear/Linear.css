@@ -1,0 +1,135 @@
+@import '../../../public/css/utils/variables.css';
+
+.c-linear {
+  position: relative;
+  height: calc(100% - 1.5rem);
+}
+
+/* .linear__circle_ga {
+  fill: #f00;
+
+  @nest & circle:nth-child(1) {
+    fill: #f00;
+  }
+
+  @nest & circle:nth-child(2) {
+    fill: #fff;
+  }
+
+  @nest & circle:nth-child(3) {
+    fill: #f00;
+  }
+} */
+
+.linear__axis--y2 .tick text {
+  fill: #db3236;
+}
+
+.linear__axis-label--y2 {
+  fill: #db3236;
+}
+
+.linear__axis {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.linear__axis--x .domain,
+.linear__axis--x .tick line {
+  stroke-width: 1px;
+  stroke: var(--light-gray);
+}
+
+.linear__axis--y .domain,
+.linear__axis--y2 .domain,
+.linear__axis--y .tick line,
+.linear__axis--y2 .tick line {
+  stroke: none;
+}
+
+.linear__grid .domain {
+  stroke: none;
+}
+
+.linear__grid .tick line {
+  stroke: var(--gray-light);
+}
+
+.linear__overlay {
+  fill: rgba(56, 56, 56, 0.02);
+  pointer-events: all;
+}
+
+.linear__line,
+.linear__line_ga {
+  stroke-width: 2px;
+  fill: none;
+  pointer-events: none;
+}
+
+.linear__circle {
+  pointer-events: none;
+}
+
+.linear-tooltip {
+  position: absolute;
+  top: 3.125rem;
+  width: 12.5rem;
+  background-color: rgba(250, 250, 250, 0.9);
+  color: #494949;
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.linear-tooltip__header {
+  padding: 0.375rem 0.625rem;
+  background: rgba(158, 158, 158, 0.9);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+}
+
+.linear-tooltip__body {
+  border-width: 0 var(--border-width-thick) var(--border-width-thick);
+  border-style: solid;
+  border-color: rgba(158, 158, 158, 0.9);
+}
+
+.linear-tooltip__list {
+  margin-top: var(--spacing-none);
+  margin-bottom: var(--spacing-none);
+  padding-left: var(--spacing-none);
+  list-style: none;
+}
+
+.linear-tooltip__item {
+  position: relative;
+  padding:
+    var(--spacing-xx-small)
+    4rem
+    var(--spacing-xx-small)
+    var(--spacing-large);
+  overflow: hidden;
+  border-bottom: var(--border-width-thin) solid var(--gray-light);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linear-tooltip__color {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translateY(-50%);
+}
+
+.linear-tooltip__label {
+  font-weight: var(--font-weight-bold);
+}
+
+.linear-tooltip__value {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-x-small);
+  transform: translateY(-50%);
+}

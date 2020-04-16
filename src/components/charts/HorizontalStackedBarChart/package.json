@@ -1,0 +1,6 @@
+{
+  "name": "HorizontalStackedBarChart",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HorizontalStackedBarChart.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "FavouriteSearch",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FavouriteSearch.jsx"
+}

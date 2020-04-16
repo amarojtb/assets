@@ -1,0 +1,12 @@
+.row {
+  @nest
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  @nest &::after {
+    clear: both;
+  }
+}

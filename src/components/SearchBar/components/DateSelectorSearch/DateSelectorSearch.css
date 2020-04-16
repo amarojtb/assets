@@ -1,0 +1,396 @@
+@import '../../../../../Content/public/css/utils/variables.css';
+
+.c-date-picker-year__selector {
+  @nest & li {
+    padding: 5px 10px;
+    border-bottom: solid 1px var(--light-gray);
+    box-shadow: 0 1px 0 0 var(--gray-lighter);
+    font-size: var(--font-size-base);
+    list-style: none;
+    text-align: left;
+
+    @nest &:last-child {
+      border-bottom: none;
+      box-shadow: none;
+    }
+
+    @nest &:hover {
+      border-bottom: solid 1px var(--gray-lighter);
+      background-color: var(--white);
+      box-shadow: 0 1px 0 0 var(--light-gray);
+      cursor: pointer;
+    }
+  }
+}
+
+.c-date-selector__modal {
+  @nest & .modal__container {
+    min-height: 460px;
+  }
+
+  @nest & .c-date-selector__modal-close {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+  }
+
+  @nest & .date-selector__inputs {
+    display: inline-block;
+    width: 40%;
+    padding: 0.5rem;
+
+    @media (--max-sm) {
+      width: 100%;
+    }
+
+    @nest & .date-selector__title {
+      margin-top: 5rem;
+      font-size: 3.75rem;
+      font-weight: 900;
+      line-height: 1;
+
+      @media (--max-sm) {
+        margin-top: 0;
+      }
+    }
+
+    @nest & .date-selector__row {
+      display: inline-block;
+      width: 100%;
+
+      @nest & .date-selector__from, & .date-selector__to {
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+      }
+
+      @nest & .date-selector__label, & .date-selector__value {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      @nest & .date-selector__value {
+        @nest & select {
+          width: calc(50% - 0.25rem);
+          height: 2.625rem;
+          border: 1px solid var(--medium-gray);
+          background-color: var(--gray-light);
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 2.625rem;
+        }
+
+        @nest & .date-selector__date--from {
+          font-size: 14px;
+          font-weight: normal;
+        }
+      }
+
+      @nest & .date-selector__date--from, & .date-selector__date--to {
+        height: 2.625rem;
+        border: 1px solid var(--medium-gray);
+        background-color: var(--gray-light);
+        line-height: 2.625rem;
+      }
+    }
+  }
+}
+
+.date-text {
+  font-size: small;
+  margin-left: 8px;
+}
+
+.c-date-selector {
+  margin-bottom: var(--spacing-small);
+
+  @nest & .date-selector_datetype {
+    @nest & .radio {
+      display: inline-block;
+      padding: 10px;
+
+      @nest &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  @nest & .drop-down-trigger {
+    display: inline-block;
+    width: 100%;
+    min-height: 32px;
+    padding: 0 0 0 10px;
+    border: solid 0.5px #ddd;
+    background: var(--white);
+    color: var(--jet);
+    text-align: left;
+
+    @nest & .drop-down-trigger__label {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid var(--silver);
+      border-right: 0;
+    }
+  }
+
+  @nest & .drop-down-icon {
+    position: absolute;
+    right: 0;
+    padding: 6px 11px;
+    color: var(--white);
+
+    @nest & svg {
+      margin: 0 !important;
+    }
+  }
+
+  @nest & .dropdown-show-content {
+    top: 98%;
+    width: 100%;
+    animation: fadeIn 0.15s ease-out;
+    outline: solid 0.5px #ddd;
+    outline-offset: -1px;
+    background: var(--white);
+    box-shadow: none;
+    border: 1px solid var(--silver);
+    border-top: 0;
+    @nest &:before {
+      content: none;
+    }
+  }
+
+  @nest & .list-header {
+    padding: 6px 10px 6px 10px;
+    background-color: var(--white);
+    color: var(--jet);
+    font-weight: 700;
+  }
+
+  @nest & .separator {
+    height: 1px;
+    background: var(--silver);
+  }
+
+  @nest & .list-item {
+    padding: 6px 42px 6px 12px;
+    border-bottom: solid 1px var(--light-silver);
+    color: var(--jet);
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @nest &.selected {
+      background-color: var(--gray-light);
+    }
+
+    @nest &:hover {
+      background-color: var(--gray-light);
+    }
+  }
+
+  /* -----------------------------------------------------
+  * list
+   ----------------------------------------------------- */
+  @nest & .date-selector_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @nest & .date-selector_list__item {
+      padding: 5px 10px;
+      cursor: pointer;
+
+      @nest &:hover {
+        background: var(--gray-light);
+      }
+
+      @nest & .date-selector_list__item-icon {
+        float: right;
+      }
+
+      @nest & .date-selector_list__item-name {
+        display: inline-block;
+        width: calc(100% - 5rem);
+        padding-right: var(--spacing-xx-small);
+        vertical-align: bottom;
+      }
+    }
+
+    @nest & .date-selector_list__item--selected {
+      background: var(--light-gray);
+    }
+  }
+}
+
+/* -----------------------------------------------------
+  * DATE RANGE CALENDAR
+   ----------------------------------------------------- */
+
+.c-date-picker-range__calendar {
+  display: inline-block;
+  width: 60%;
+  margin: 0;
+  padding: 35px 0 0;
+  float: right;
+  font-size: 0.875rem;
+  font-size: var(--font-size-base);
+
+  @media (--max-sm) {
+    width: 100%;
+    padding: 0;
+  }
+
+  @nest & .DayPicker-NavButton--prev {
+    position: absolute;
+    left: 15px;
+  }
+
+  @nest & .DayPicker-Month {
+    margin: 0;
+    margin-top: 0;
+  }
+
+  @nest & .DayPicker-Weekday abbr {
+    color: var(--black);
+    font-size: 0.625rem;
+  }
+
+  @nest & .DayPicker-Caption {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+    @nest & .drop-down {
+      display: inline-block;
+      border-radius: 3px;
+      color: #4384ff;
+
+      @nest & .drop-down-trigger {
+        display: inline-block;
+        padding: 0 5px;
+      }
+    }
+  }
+
+  @nest & .DayPicker-wrapper {
+    padding-bottom: 0;
+
+    @nest & .DayPicker-NavButton {
+      top: 8px;
+    }
+
+    @nest & .DayPicker-NavButton--next {
+      background-image: none;
+
+      @nest &:after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 0;
+        height: 0;
+        margin-top: -8px;
+        border: solid transparent;
+        border-width: 8px;
+        border-color: rgba(0, 0, 0, 0);
+        border-left-color: var(--black);
+        pointer-events: none;
+      }
+    }
+
+    @nest & .DayPicker-NavButton--prev {
+      background-image: none;
+
+      @nest &:after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 0;
+        height: 0;
+        margin-top: -8px;
+        border: solid transparent;
+        border-width: 8px;
+        border-color: rgba(0, 0, 0, 0);
+        border-right-color: var(--black);
+        pointer-events: none;
+      }
+    }
+
+    @nest & .DayPicker-WeekdaysRow {
+      box-shadow: 0 -5px 1px -5px var(--silver), 0 5px 1px -5px var(--silver);
+    }
+
+    @nest & .DayPicker-Month {
+      width: 100%;
+      border-spacing: 0.9rem 0.9rem;
+      border-collapse: initial;
+
+      @media (--max-sm) {
+        border-spacing: 0.9rem 0.5rem;
+      }
+    }
+
+    @nest & .DayPicker-Day {
+      padding: 0.75em 1.05rem;
+      border-radius: 0;
+      background-color: var(--gray-lighter);
+      box-shadow: 1px 2px 1px var(--light-gray);
+      color: var(--gray-darker);
+      font-size: inherit;
+      font-weight: var(--font-weight-bold);
+
+      @media (--max-sm) {
+        padding: 0.5rem 0.8rem;
+      }
+
+      @nest &.outside {
+        padding: 0.75em 1.05rem;
+        border-radius: 0;
+        background-color: var(--gray-lighter) !important;
+        box-shadow: 1px 2px 1px var(--light-gray);
+        color: var(--light-silver);
+        pointer-events: none;
+
+        @media (--max-sm) {
+          padding: 0.5rem 0.5rem;
+        }
+      }
+    }
+
+    @nest & .DayPicker-Caption {
+      text-align: center;
+    }
+
+    @nest & .outside {
+      background-color: transparent !important;
+      box-shadow: none;
+
+      @nest &:hover {
+        background-color: transparent !important;
+        cursor: initial;
+      }
+    }
+
+    @nest & .selected {
+      color: var(--white);
+
+      @nest &:hover {
+        box-shadow: 1px 2px 1px var(--dark-medium-gray);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    position: absolute;
+    top: 100%;
+    opacity: 1;
+  }
+}

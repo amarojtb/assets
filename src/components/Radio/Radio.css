@@ -1,0 +1,95 @@
+@import '../../public/css/utils/variables.css';
+
+[type='radio'] {
+  @nest
+  &:not(:checked),
+  &:checked {
+    visibility: hidden;
+
+    /* Remove default Radio Buttons */
+    position: absolute;
+    left: -9999px;
+
+    @nest & + label {
+      display: inline-block;
+      position: relative;
+      padding-left: 1.75rem;
+      transition: 0.28s ease;
+      line-height: 1.5;
+      user-select: none;
+
+      @nest
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        top: -0.125rem;
+        left: 0;
+        width: 1rem;
+        height: 1rem;
+        margin: 0.25rem;
+        transition: 0.28s ease;
+      }
+
+      @nest &::before {
+        border-width: 0.125rem;
+        border-style: solid;
+      }
+
+      @nest &:hover::after {
+        will-change: transform;
+      }
+    }
+  }
+
+  /* Unchecked styles */
+  @nest &:not(:checked) + label {
+    @nest
+    &::before,
+    &::after {
+      border-radius: 50%;
+      border-color: var(--text-color);
+    }
+
+    @nest &::after {
+      transform: scale(0);
+    }
+  }
+
+  /* Checked styles */
+  @nest &:checked + label {
+    @nest
+    &::before,
+    &::after {
+      border-radius: 50%;
+      border-color: var(--brand-success);
+    }
+
+    @nest &::after {
+      transform: scale(0.5);
+      background-color: var(--brand-success);
+    }
+  }
+
+  /* Disabled style */
+  @nest &:disabled {
+    @nest & + label {
+      color: var(--gray);
+
+      @nest &::before {
+        border-color: rgba(0, 0, 0, 0.26);
+        background-color: transparent;
+      }
+    }
+
+    @nest &:checked + label::after {
+      border: 0;
+      background-color: rgba(0, 0, 0, 0.26);
+    }
+  }
+
+  @nest &:not(:disabled) + label {
+    cursor: pointer;
+  }
+}

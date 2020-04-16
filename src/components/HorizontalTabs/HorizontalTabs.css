@@ -1,0 +1,141 @@
+@import '../../../Content/public/css/utils/variables.css';
+
+.c-horizontal-tabs {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-right: solid 1px #ccc;
+
+  @nest & .horizontal-tabs__actions {
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+    right: 35px;
+    padding: 0 15px 0 5px;
+    border-radius: 50px;
+    color: #fff;
+
+    @nest & .drop-down-icon {
+      top: 5px;
+      right: -11px;
+    }
+  }
+
+  @nest & .horizontal-tabs__submit_actions {
+    display: flex;
+    margin: 10px;
+    float: right;
+
+    @nest & .btn--primary {
+      order: 2;
+      margin: 0 5px;
+    }
+
+    @nest & .btn--default {
+      order: 1;
+    }
+  }
+}
+
+.horizontal-tabs__tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-bottom: solid 1px var(--gray-medium-light);
+  background: var(--white);
+
+  @nest & svg {
+    margin-right: var(--spacing-small);
+  }
+
+  @nest & .c-add-widget__submit_actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+
+    @nest & button {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.horizontal-tabs__container {
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 10px;
+  overflow-y: auto;
+
+  @media (--max-sm) {
+    position: relative;
+    width: 100% !important;
+    height: 87%;
+    margin-left: 0;
+  }
+}
+
+.horizontal-tabs__wrapper {
+  height: 100%;
+  overflow-y: auto;
+
+  @media (--max-md) {
+    width: 100%;
+  }
+}
+
+.horizontal-tabs__children {
+  display: inline-block;
+  flex: 2.5;
+  height: 100%;
+  overflow: hidden;
+
+  @media (--max-md) {
+    width: 100%;
+  }
+}
+
+.expand-btn {
+  margin: 5px;
+  margin-right: 15px;
+  float: right;
+}
+
+.horizontal-tabs__sidebar--content {
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  @nest &.selected-tab {
+    display: inline-block !important;
+  }
+}
+
+.horizontal-tabs__sidebar--item {
+  width: 50%;
+  padding: 10px 10px 4px;
+  border-bottom: solid 5px transparent;
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+
+  @media (--max-md) {
+    padding: 10px 10px 4px;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+
+  @nest & .white-text {
+    color: var(--white);
+  }
+
+  @nest & svg {
+    margin-right: var(--spacing-small);
+  }
+
+  @nest &.t-color-primary-bg {
+    color: var(--white);
+  }
+}

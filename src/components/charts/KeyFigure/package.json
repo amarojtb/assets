@@ -1,0 +1,6 @@
+{
+  "name": "KeyFigure",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./KeyFigure.jsx"
+}

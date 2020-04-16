@@ -1,0 +1,94 @@
+@import "../../../public/css/utils/variables.css";
+
+/* ==========================================================================
+   #GRID
+   ========================================================================== */
+
+.c-grid {
+  margin-right: var(--spacing-x-small);
+  margin-left: var(--spacing-x-small);
+}
+
+.c-grid--facebook {
+  @nest & > .c-table thead th {
+    background-color: var(--color-facebook) !important;
+  }
+
+  @nest & > .c-table tbody tr:nth-of-type(odd) > td {
+    background-color: #f7f7f7;
+  }
+
+  @nest & > .c-table tbody tr:nth-of-type(even) > td {
+    background-color: #dfe3ee;
+  }
+}
+
+.c-grid--twitter {
+  @nest & > .c-table thead th {
+    background-color: var(--color-twitter) !important;
+  }
+
+  @nest & > .c-table tbody tr:nth-of-type(odd) > td {
+    background-color: #e7f1fa;
+  }
+
+  @nest & > .c-table tbody tr:nth-of-type(even) > td {
+    background-color: #cce3f3;
+  }
+}
+
+.c-grid--latest-articles {
+  @nest & > .c-table thead th {
+    visibility: hidden;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.latest-articles__clip-item {
+  height: auto;
+}
+
+.latest-articles__clip-item__info {
+  font-size: var(--font-size-x-small);
+}
+
+.latest-articles__clip-item__title {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+.latest-articles__clip-delivered-date {
+  font-size: var(--font-size-medium);
+  text-align: right;
+}
+
+.latest-articles-expanded__clip-item {
+  cursor: pointer;
+}
+
+.latest-articles-expanded__clip-item-public {
+  cursor: default;
+}
+
+.latest-articles-expanded__clip-item__info {
+  font-size: var(--font-size-small);
+}
+
+.latest-articles-expanded__clip-delivered-date {
+  color: var(--spanish-gray);
+  text-align: right;
+}
+
+.latest-articles-expanded__clip-item__source {
+  font-weight: var(--font-weight-bold);
+}
+
+.latest-articles-expanded__clip-item__title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-medium);
+}
+
+.grid-media-impact-score-title__no-link {
+  color: #428bca;
+}

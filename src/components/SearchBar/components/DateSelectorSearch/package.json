@@ -1,0 +1,6 @@
+{
+  "name": "DateSelectorSearch",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DateSelectorSearch.jsx"
+}

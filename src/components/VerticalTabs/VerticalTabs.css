@@ -1,0 +1,211 @@
+@import '../../../Content/public/css/utils/variables.css';
+
+.c-vertical-tabs {
+  display: block;
+  width: 100%;
+  min-height: 439px;
+
+  @nest & .vertical-tabs__actions {
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+    right: 35px;
+    padding: 0 15px 0 5px;
+    border-radius: 50px;
+    color: #fff;
+
+    @nest & .drop-down-icon {
+      top: 5px;
+      right: -11px;
+    }
+  }
+
+  @nest & .vertical-tabs__submit_actions {
+    display: flex;
+    margin: 10px;
+    float: right;
+
+    @nest & .btn--primary {
+      order: 2;
+      margin: 0 5px;
+    }
+
+    @nest & .btn--default {
+      order: 1;
+    }
+  }
+
+  @nest & .showTab {
+    display: initial !important;
+    visibility: visible;
+    transition: all 0.33s ease-out;
+    opacity: 1;
+  }
+
+  @nest & .hideTab {
+    display: initial !important;
+    visibility: hidden;
+    flex: none;
+    width: 0;
+    transform: translateX(-100%);
+    transition: all 0.33s ease-out;
+    opacity: 0;
+  }
+
+  @nest & .expand-btn {
+    @nest & span:nth-child(2) {
+      position: relative;
+      left: -24px;
+      transform: rotate(90deg);
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.vertical-tabs__tabs {
+  display: table-cell;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 13%;
+  height: 100%;
+  float: left;
+  background: var(--gray-lighter);
+  box-shadow: -2px 0 15px -3px var(--dim-gray);
+  vertical-align: top;
+
+  @nest & .tab-disabled {
+    position: relative;
+    pointer-events: none;
+
+    @nest &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @nest & svg {
+    margin-right: var(--spacing-small);
+  }
+
+  @nest & .c-add-widget__submit_actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+
+    @nest & button {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.vertical-tabs__container {
+  display: flex;
+  position: absolute;
+  width: 87%;
+  height: calc(100% - 128px);
+  margin-left: 13%;
+  overflow-y: auto;
+
+  @media (--max-sm) {
+    position: relative;
+    width: 100% !important;
+    height: 87%;
+    margin-left: 0;
+  }
+}
+
+.vertical-tabs__wrapper {
+  display: inline-block;
+  flex: 1;
+  max-height: 100%;
+  overflow: hidden;
+  vertical-align: top;
+
+  @media (--max-md) {
+    width: 100%;
+  }
+}
+
+.vertical-tabs__children {
+  display: inline-block;
+  position: relative;
+  flex: 2.5;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+
+  @nest & .expand-btn {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    margin: 0;
+    padding: 0 7px;
+    overflow: hidden;
+    border-radius: 0 !important;
+  }
+  @nest & .chevron-icon {
+    position: absolute;
+    left: 0;
+    top: 45%;
+  }
+
+  @media (--max-md) {
+    width: 100%;
+  }
+}
+
+.vertical-tabs__sidebar--content {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @nest &.selected-tab {
+    display: inline-block !important;
+  }
+}
+
+.vertical-tabs__sidebar--item {
+  padding: 10px;
+  border-bottom: solid 1px var(--light-silver) !important;
+  border-left: solid 7px transparent;
+  font-weight: 400;
+
+  @nest &.tab-selected {
+    border-left: solid 7px;
+    background: var(--white);
+    font-weight: 700;
+  }
+
+  @media (--max-md) {
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+
+  @nest & .white-text {
+    color: var(--white);
+  }
+
+  @nest & svg {
+    margin-right: var(--spacing-small);
+  }
+
+  @nest &.t-color-primary-bg {
+    color: var(--white);
+  }
+}

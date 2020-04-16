@@ -1,0 +1,82 @@
+@import '../../public/css/utils/variables.css';
+
+.c-range-picker {
+  width: 100%;
+
+  @nest & .rc-calendar-date {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  @nest & .rc-calendar-footer-btn {
+    padding-right: 0;
+    padding-bottom: 0;
+
+    @nest &::after {
+      content: none;
+    }
+  }
+
+  @nest & .rc-calendar-time-picker-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  @nest & .rc-calendar-cell {
+    padding: 0;
+
+    @nest & .rc-calendar-date {
+      border: none;
+    }
+  }
+
+  @nest & .rc-calendar-in-range-cell {
+    border-radius: 0;
+    background: #f6e4c0;
+
+    @nest & .rc-calendar-date {
+      color: #333;
+      font-weight: 700;
+    }
+  }
+
+  @nest & .rc-calendar-selected-day {
+    font-weight: 700;
+
+    @nest & .rc-calendar-date {
+      background: #f6e4c0;
+      color: #333;
+      font-weight: 700;
+    }
+  }
+}
+
+.rc-calendar {
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+}
+
+.rc-calendar-range-part {
+  width: 49%;
+}
+
+.rc-calendar-time-picker {
+  height: 85%;
+
+  @nest & .rc-time-picker-panel-select {
+    max-height: none;
+  }
+
+  @nest & .rc-time-picker-panel-inner {
+    display: inline-block;
+    width: 100%;
+
+    @nest & .rc-time-picker-panel-select {
+      width: 31.5%;
+    }
+  }
+}

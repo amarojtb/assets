@@ -1,0 +1,135 @@
+@import '../../../../../Content/public/css/utils/variables.css';
+
+.c-favourite-search {
+  @nest & .drop-down-trigger {
+    width: 100%;
+    padding: 6px 40px 6px 10px;
+    border: solid 0.5px #ddd;
+    background: var(--white);
+    color: #333;
+    text-align: left;
+  }
+
+  @nest & .drop-down-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 11px;
+    color: var(--white);
+
+    @nest & svg {
+      margin: 0 !important;
+    }
+  }
+
+  @nest & .dropdown-show-content {
+    top: 98%;
+    width: 100%;
+    animation: fadeIn 0.15s ease-out;
+    outline: solid 0.5px #ddd;
+    outline-offset: -1px;
+    background: var(--white);
+    box-shadow: none;
+
+    @nest &:before {
+      content: none;
+    }
+  }
+
+  @nest & .list-header {
+    padding: 6px 10px 6px 10px;
+    background-color: var(--white);
+    color: var(--jet);
+    font-weight: 700;
+  }
+
+  @nest & .separator {
+    height: 1px;
+    background: var(--silver);
+  }
+
+  @nest & .list-item {
+    padding: 6px 42px 6px 12px;
+    border-bottom: solid 1px var(--light-silver);
+    color: var(--jet);
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @nest &.selected {
+      background-color: var(--gray-light);
+    }
+
+    @nest &:hover {
+      background-color: var(--gray-light);
+    }
+  }
+
+  /* -----------------------------------------------------
+  * Favourite search list
+   ----------------------------------------------------- */
+  @nest & .favourite-search_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @nest & .favourite-search_list__item {
+      padding: 5px 10px;
+      cursor: pointer;
+
+      @nest &:hover {
+        background: var(--gray-light);
+      }
+
+      @nest & .favourite-search_list__item-name {
+        display: inline-block;
+        width: calc(100% - 5rem);
+        padding-right: var(--spacing-xx-small);
+        vertical-align: bottom;
+      }
+
+      @nest & .favourite-search_list__item-name.edit {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-bottom: solid 1px #177fff;
+      }
+
+      @nest & .favourite-search_list__item-actions {
+        display: inline-block;
+        width: 5rem;
+        padding-right: var(--spacing-xx-small);
+        font-size: 0.75rem;
+        text-align: right;
+        vertical-align: top;
+
+        @nest & div {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.favourite-search_loader {
+  position: absolute;
+  z-index: 9;
+  top: 5px;
+  right: 36px;
+  width: 0.8em;
+  height: 0.8em;
+}
+
+@keyframes fadeIn {
+  0% {
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    position: absolute;
+    top: 100%;
+    opacity: 1;
+  }
+}

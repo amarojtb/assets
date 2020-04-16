@@ -1,0 +1,380 @@
+@import '../../public/css/utils/variables.css';
+
+.Select {
+  position: relative;
+
+  @nest &.is-disabled > .Select-control {
+    opacity: 0.65;
+    background-color: var(--gray-lighter);
+
+    @nest &:hover {
+      box-shadow: none;
+    }
+  }
+
+  @nest &.is-disabled .Select-arrow-zone {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+/* CONTROL */
+
+.Select-control {
+  display: table;
+  width: 100%;
+  height: calc(var(--height-input) + var(--border-width-thin) * 2);
+  overflow: hidden;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: var(--border-width-thin) solid var(--color-border-input);
+  outline: none;
+  background-color: var(--white);
+  cursor: default;
+
+  @nest &:hover {
+    box-shadow: none;
+  }
+
+  @nest & .Select-input:focus {
+    outline: none;
+  }
+
+  @nest .is-open > & {
+    border-color: var(--medium-gray) var(--silver) var(--light-gray);
+    background: var(--white);
+
+    @nest & .Select-arrow {
+      top: -2px;
+      border-width: 0 5px 5px;
+      border-color: transparent transparent var(--jet);
+    }
+  }
+
+  @nest .is-focused:not(.is-open) > & {
+    border-color: #007eff;
+  }
+
+  @nest
+  .is-searchable.is-open > &,
+  .is-searchable.is-focused:not(.is-open) > & {
+    cursor: text;
+  }
+
+  @nest .has-error & {
+    border-width: var(--border-width-thick);
+    border-color: var(--color-border-error);
+  }
+}
+
+/* PLACEHOLDER */
+
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  padding-right: var(--spacing-large);
+  padding-left: var(--spacing-small);
+  overflow: hidden;
+  line-height: calc(var(--height-input) + var(--border-width-thin) * 2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Select.Select--single.is-clearable .Select-value {
+  padding-right: 2.5rem;
+}
+
+.has-value.Select--single > .Select-control .Select-value,
+.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value {
+  @nest & a.Select-value-label {
+    text-decoration: none;
+    cursor: pointer;
+
+    @nest
+    &:hover,
+    &:focus {
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* INPUT */
+
+.Select-input {
+  height: calc(var(--height-input) - var(--border-width-thin) * 2);
+  padding-right: var(--spacing-medium);
+  padding-left: var(--spacing-small);
+  line-height: 1.75rem;
+  vertical-align: middle;
+
+  @nest & > input {
+    display: inline-block;
+    width: 100%;
+    height: calc(var(--height-input) - var(--border-width-thin) * 2);
+    margin: 0;
+    border: 0 none;
+    outline: none;
+    background: none transparent;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: default;
+
+    /* stylelint-disable property-no-vendor-prefix */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* stylelint-enable property-no-vendor-prefix */
+
+    @nest .is-focused & {
+      cursor: text;
+    }
+  }
+
+  @nest .has-value.is-pseudo-focused & {
+    opacity: 0;
+  }
+
+  @nest .Select-control:not(.is-searchable) > & {
+    outline: none;
+  }
+}
+
+/* LOADING */
+
+.Select-loading-zone {
+  display: table-cell;
+  position: relative;
+  width: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.Select-loading {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  animation: Select-animation-spin var(--duration-slowly) infinite linear;
+  border: var(--border-width-thick) solid var(--silver);
+  border-radius: var(--border-radius-circle);
+  border-right-color: var(--jet);
+  vertical-align: middle;
+}
+
+@keyframes Select-animation-spin {
+  to { transform: rotate(1turn); }
+}
+
+/* CLEAR */
+
+.Select-clear-zone {
+  display: table-cell;
+  position: relative;
+  width: 1rem;
+  animation: Select-animation-fadeIn var(--duration-promptly);
+  color: var(--spanish-gray);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+
+  @nest &:hover {
+    color: var(--color-text-error);
+  }
+
+  @nest .Select--multi & {
+    width: 1rem;
+  }
+}
+
+.Select-clear {
+  display: inline-block;
+  font-size: var(--font-size-x-large);
+  line-height: var(--line-height-reset);
+}
+
+@keyframes Select-animation-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ARROW */
+
+.Select-arrow-zone {
+  display: table-cell;
+  position: relative;
+  width: 25px;
+  padding-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.Select .Select-aria-only {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  float: left;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* MULTI */
+
+.Select--multi {
+  @nest & .Select-multi-value-wrapper {
+    display: inline-block;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: var(--spacing-xx-small);
+  }
+
+  @nest & .Select-input {
+    margin-left: var(--spacing-xx-small);
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  @nest &.has-value .Select-input {
+    margin-left: 5px;
+  }
+
+  @nest & .Select-value {
+    display: inline-block;
+    position: relative;
+    margin-top: var(--spacing-xxx-small);
+    margin-right: var(--spacing-xx-small);
+    margin-bottom: var(--spacing-xxx-small);
+    padding:
+      var(--spacing-xxx-small)
+      var(--spacing-medium)
+      var(--spacing-xxx-small)
+      var(--spacing-xx-small);
+    border: var(--border-width-thin) solid var(--silver);
+    background-color: var(--gray-light);
+    font-size: var(--font-size-medium);
+  }
+
+  @nest
+  & .Select-value-icon,
+  & .Select-value-label {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  @nest & .Select-value-label {
+    cursor: default;
+  }
+
+  @nest & a.Select-value-label {
+    color: var(--jet);
+    text-decoration: none;
+    cursor: pointer;
+
+    @nest &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @nest & .Select-value-icon {
+    position: absolute;
+    right: var(--spacing-xx-small);
+    padding-left: var(--spacing-xx-small);
+    border-right: var(--border-width-thin) solid var(--gray-light);
+    color: var(--dim-gray);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+  }
+
+  @nest &.is-disabled {
+    @nest & .Select-value {
+      border: var(--border-width-thin) solid var(--color-border-input-disabled);
+      background-color: var(--color-background-input-disabled);
+    }
+
+    @nest & .Select-value-icon {
+      cursor: not-allowed;
+
+      @nest
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--gray-lighter);
+      }
+    }
+  }
+}
+
+/* MENU */
+
+.Select-menu-outer {
+  position: absolute;
+  z-index: var(--z-index-default);
+  top: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 12.5rem;
+  margin-top: -1px;
+  border: var(--border-width-thin) solid var(--color-border-input);
+  border-top-color: var(--gray-light);
+  background-color: var(--color-background-input);
+  -webkit-overflow-scrolling: touch;
+
+  @nest .Select--open-top & {
+    position: absolute;
+    top: auto;
+    bottom: calc(100% - 1px);
+    border-top-color: var(--color-border-input);
+    border-bottom-color: var(--gray-light);
+  }
+}
+
+/* MENU: WRAPPER */
+
+.Select-menu {
+  max-height: calc(12.5rem - 2px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.Select-option {
+  display: block;
+  box-sizing: border-box;
+  padding: var(--spacing-x-small) var(--spacing-small);
+  background-color: var(--color-background-input);
+  color: var(--dim-gray);
+  cursor: pointer;
+
+  @nest &.is-selected {
+    background-color: var(--gray-light);
+    color: var(--jet);
+  }
+
+  @nest &.is-focused {
+    background-color: var(--gray-lighter);
+    color: var(--jet);
+  }
+
+  @nest &.is-disabled {
+    color: var(--gray-light);
+    cursor: default;
+  }
+}
+
+/* MENU: NO RESULTS */
+
+.Select-noresults {
+  display: block;
+  box-sizing: border-box;
+  padding: var(--spacing-xx-small) var(--spacing-small);
+  color: var(--gray);
+  cursor: default;
+}

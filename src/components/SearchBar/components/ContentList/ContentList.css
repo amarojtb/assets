@@ -1,0 +1,146 @@
+@import '../../../../../Content/public/css/utils/variables.css';
+
+.c-content-list {
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+
+  @nest & .content-list_actions {
+    padding: 0.375rem 0.625rem;
+    text-align: right;
+  }
+
+  @nest & .drop-down-trigger {
+    z-index: 2;
+    width: 100%;
+    padding: 6px 40px 6px 10px;
+    border: solid 0.5px #ddd;
+    background: var(--white);
+    color: #333;
+    text-align: left;
+  }
+
+  @nest & .drop-down-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 11px;
+    color: var(--white);
+
+    @nest & svg {
+      margin: 0 !important;
+    }
+  }
+
+  @nest & .dropdown-show-content {
+    top: 98%;
+    width: 100%;
+    animation: fadeIn 0.15s ease-out;
+    outline: solid 0.5px #ddd;
+    outline-offset: -1px;
+    background: var(--white);
+    box-shadow: none;
+
+    @nest &:before {
+      content: none;
+    }
+  }
+
+  @nest & .list-header {
+    padding: 6px 10px 6px 10px;
+    background-color: var(--white);
+    color: var(--jet);
+    font-weight: 700;
+  }
+
+  @nest & .separator {
+    height: 1px;
+    background: var(--silver);
+  }
+
+  @nest & .list-item {
+    padding: 6px 42px 6px 12px;
+    border-bottom: solid 1px var(--light-silver);
+    color: var(--jet);
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @nest &.selected {
+      background-color: var(--gray-light);
+    }
+
+    @nest &:hover {
+      background-color: var(--gray-light);
+    }
+  }
+
+  /* -----------------------------------------------------
+  * Favourite search list
+   ----------------------------------------------------- */
+  @nest & .content-list_list {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @nest & .all-reviews {
+      margin: 10px;
+    }
+
+    @nest & .content-list_list__item {
+      padding: 0.1875rem 0.625rem;
+
+      @nest
+      &:hover,
+      &.is-selected {
+        background-color: var(--gray-light);
+      }
+
+      @nest &:hover {
+        background: var(--gray-light);
+      }
+
+      @nest & .content-list_list__item-name {
+        display: inline-block;
+        width: calc(100% - 5rem);
+        padding-right: var(--spacing-xx-small);
+        vertical-align: bottom;
+      }
+
+      @nest & .content-list_list__item-date {
+        display: inline-block;
+        width: 5rem;
+        padding-right: var(--spacing-xx-small);
+        font-size: 0.75rem;
+        text-align: right;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.content-list_loader {
+  position: absolute;
+  z-index: 9;
+  top: 5px;
+  right: 36px;
+  width: 0.8em;
+  height: 0.8em;
+}
+
+@keyframes fadeIn {
+  0% {
+    top: -40%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    position: absolute;
+    top: 100%;
+  }
+}

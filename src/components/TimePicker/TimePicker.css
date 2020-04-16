@@ -1,0 +1,75 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #TIME PICKER
+   ========================================================================== */
+
+.c-time-picker {
+  white-space: nowrap;
+}
+
+.c-time-picker__input-row {
+  display: inline-block;
+  border: var(--border-width-thin) solid var(--color-border-input);
+}
+
+.c-time-picker__input {
+  display: inline-block;
+  position: relative;
+  z-index: var(--z-index-default);
+  width: 2rem;
+  min-height: var(--height-input);
+  transition:
+    border var(--duration-quickly) linear,
+    background-color var(--duration-quickly) linear;
+  border: var(--border-width-thin) solid transparent;
+  background-color: var(--color-background-input);
+  color: var(--color-text-default);
+  line-height: calc(var(--height-input) - var(--border-width-thin) * 4);
+  text-align: center;
+  vertical-align: top;
+
+  @nest
+  &:focus,
+  &:active {
+    border-color: var(--color-border-input-active);
+    outline: 0;
+    background-color: var(--color-background-input-active);
+    box-shadow: var(--shadow-button-focus);
+  }
+
+  @nest
+  &[disabled],
+  &.is-disabled {
+    border-color: var(--color-border-input-disabled);
+    background-color: var(--color-background-input-disabled);
+    cursor: not-allowed;
+    user-select: none;
+
+    @nest
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+.c-time-picker__divider-text {
+  display: inline-block;
+  width: var(--spacing-small);
+  min-height: calc(var(--height-input) - var(--border-width-thin) * 4);
+  background-color: var(--color-background-input);
+  color: var(--color-text-default);
+  font-size: var(--font-size-large);
+  line-height: var(--height-input);
+  text-align: center;
+  vertical-align: top;
+}
+
+.c-time-picker__arrow-button {
+  width: 2rem;
+
+  @nest & + .c-time-picker__arrow-button {
+    margin-left: var(--spacing-small);
+  }
+}

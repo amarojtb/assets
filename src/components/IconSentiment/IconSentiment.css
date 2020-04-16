@@ -1,0 +1,48 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #ICON SENTIMENT
+   ========================================================================== */
+
+.c-icon-sentiment {
+  position: relative;
+}
+
+.c-icon-sentiment__human {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  fill: var(--dim-gray);
+}
+
+.c-icon-sentiment__level {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  @nest .c-icon-sentiment.is-balanced & {
+    border-top-color: var(--color-balanced);
+  }
+
+  @nest .c-icon-sentiment.is-negative & {
+    border-top-color: var(--color-negative);
+  }
+
+  @nest .c-icon-sentiment.is-neutral & {
+    border-top-color: var(--color-neutral);
+  }
+
+  @nest .c-icon-sentiment.is-notanalyzed & {
+    border-top-color: var(--color-notanalyzed);
+  }
+
+  @nest .c-icon-sentiment.is-positive & {
+    border-top-color: var(--color-positive);
+  }
+}

@@ -1,0 +1,99 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #FILE SELECTOR
+   ========================================================================== */
+
+.c-file-selector {
+  display: inline-flex;
+}
+
+.c-file-selector__body {
+  @nest
+  .has-drag-over &,
+  .has-drag-over--with-error & {
+    pointer-events: none;
+  }
+}
+
+.c-file-selector__dropzone {
+  padding: var(--spacing-xxx-small);
+  border: var(--border-width-thin) dashed var(--color-border);
+
+  @nest &.has-drag-over {
+    border-style: solid;
+    border-color: var(--color-border-input-active);
+    outline: 0;
+    box-shadow: var(--shadow-button-focus);
+  }
+}
+
+.c-file-selector__input {
+  @nest &:focus ~ .c-file-selector__body > .c-file-selector__button {
+    box-shadow: var(--shadow-button-focus);
+  }
+
+  @nest &[disabled] ~ .c-file-selector__body {
+    color: var(--color-text-button-default-disabled);
+
+    @nest & > .c-file-selector__button {
+      border-color: var(--color-border-button-brand-disabled);
+      background: var(--color-background-button-brand-disabled);
+      color: var(--color-text-button-brand-disabled);
+    }
+
+    @nest & > .c-file-selector__body-icon {
+      fill: currentColor;
+    }
+  }
+}
+
+/* FILES */
+
+.c-file-selector--files {
+  @nest & .c-file-selector__body {
+    display: flex;
+    align-items: center;
+    width: max-content;
+  }
+
+  @nest & .c-file-selector__button {
+    line-height: var(--line-height-reset);
+  }
+
+  @nest & .c-file-selector__text {
+    margin-right: var(--spacing-small);
+    margin-left: var(--spacing-x-small);
+  }
+}
+.c-form-element__help{
+  display:  block !important;
+  }
+
+/* IMAGES */
+
+.c-file-selector--images {
+  display: block;
+
+  @nest & .c-file-selector__dropzone {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    @nest &::after {
+      content: '';
+      display: table; /* FF issue */
+      padding-top: 100%;
+    }
+  }
+
+  @nest & .c-file-selector__body {
+    text-align: center;
+  }
+
+  @nest & .c-file-selector__text {
+    margin-top: var(--spacing-small);
+  }
+}

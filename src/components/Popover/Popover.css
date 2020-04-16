@@ -1,0 +1,61 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #POPOVER
+   ========================================================================== */
+
+.c-popover {
+  display: inline-block;
+  position: absolute;
+  z-index: var(--z-index-dialog);
+  top: calc(100% + var(--spacing-small));
+  left: 50%;
+  min-height: calc(var(--square-tooltip-nubbin) * 3);
+  transform: translateX(-50%);
+  animation-duration: var(--duration-promptly);
+  background-color: var(--color-background-alt);
+  box-shadow:
+    0 0 0 var(--border-width-thin) var(--color-border),
+    var(--shadow-drop-down);
+}
+
+.c-popover__body {
+  position: relative;
+  padding: var(--spacing-x-small) var(--spacing-small);
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+  overflow-wrap: break-word !important;
+}
+
+.c-popover-dialog-appear {
+  animation-name: popoverDialogAppear;
+}
+
+.c-popover-dialog-exit {
+  animation-name: popoverDialogExit;
+  animation-duration: var(--duration-promptly);
+}
+
+@keyframes popoverDialogAppear {
+  from {
+    transform: translateX(-50%) scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popoverDialogExit {
+  from {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+  }
+}

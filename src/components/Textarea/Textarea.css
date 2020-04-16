@@ -1,0 +1,16 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #TEXTAREA
+   ========================================================================== */
+
+.c-textarea {
+  padding: var(--spacing-x-small) var(--spacing-small);
+  resize: vertical;
+
+  @mixin form-states;
+
+  @nest .has-error & {
+    @mixin form-input-error;
+  }
+}

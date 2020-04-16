@@ -1,0 +1,6 @@
+{
+  "name": "DotGrid",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DotGrid.jsx"
+}

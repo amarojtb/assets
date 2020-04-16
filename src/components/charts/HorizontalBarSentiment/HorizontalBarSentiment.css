@@ -1,0 +1,198 @@
+@import "../../../public/css/utils/variables.css";
+
+.horizontal-bar-sentiment {
+  display: table;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.c-expanded--horizontal-bar-sentiment .c-expanded-sidebar__body .scrollable--y {
+  overflow: visible;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.horizontal-bar-sentiment-clip-item {
+  @nest &:hover {
+    background-color: var(--gray-light);
+  }
+}
+
+.horizontal-bar-sentiment-expanded-default-message {
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: var(--spanish-gray);
+  font-size: 1.875rem;
+  line-height: 1.2;
+}
+
+.horizontal-bar-sentiment-expanded-button-more {
+  border: 0;
+}
+
+.horizontal-bar-sentiment-item:not(:last-child) > div {
+  border-bottom: var(--border-width-thin) solid var(--gray-light);
+}
+
+.horizontal-bar-sentiment-item__position {
+  width: 2.5rem;
+  font-size: var(--font-size-x-large);
+  line-height: var(--line-height-reset);
+}
+
+.horizontal-bar-sentiment-item__source {
+  width: 7.5rem;
+  max-width: 7.5rem;
+  line-height: var(--line-height-reset);
+}
+
+.horizontal-bar-sentiment-item__total {
+  width: 3.75rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.horizontal-bar-sentiment-bar {
+  height: 0.875rem;
+}
+
+.horizontal-bar-sentiment-bar__item {
+  min-width: var(--spacing-x-small);
+  cursor: pointer;
+}
+
+.horizontal-bar-sentiment-bar__item--balanced {
+  background-color: var(--color-balanced);
+}
+
+.horizontal-bar-sentiment-bar__item--negative {
+  background-color: var(--color-negative);
+}
+
+.horizontal-bar-sentiment-bar__item--neutral {
+  background-color: var(--color-neutral);
+}
+
+.horizontal-bar-sentiment-bar__item--notanalyzed {
+  background-color: var(--color-notanalyzed);
+}
+
+.horizontal-bar-sentiment-bar__item--positive {
+  background-color: var(--color-positive);
+}
+
+.horizontal-bar-sentiment-bar__item--is-active {
+  min-width: 2.5rem;
+  transform: scaleY(2.5);
+}
+
+.horizontal-bar-sentiment-bar__tooltip {
+  display: none;
+  z-index: var(--z-index-default);
+  top: -37px;
+  left: 50%;
+  width: 7.5rem;
+  margin-left: -3.75rem;
+  box-shadow: 0 0 0 1px var(--white);
+
+  @nest &::before {
+    content: "\276f";
+    position: absolute;
+    top: 4px;
+    right: 6px;
+  }
+
+  @nest &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -9px;
+    border-width: 10px 9px 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item--balanced & {
+    background-color: var(--color-balanced);
+    color: var(--white);
+
+    @nest &::after {
+      border-top-color: var(--color-balanced);
+    }
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item--negative & {
+    background-color: var(--color-negative);
+    color: var(--white);
+
+    @nest &::after {
+      border-top-color: var(--color-negative);
+    }
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item--neutral & {
+    background-color: var(--color-neutral);
+    color: var(--white);
+
+    @nest &::after {
+      border-top-color: var(--color-neutral);
+    }
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item--notanalyzed & {
+    background-color: var(--color-notanalyzed);
+    color: var(--dim-gray);
+
+    @nest &::after {
+      border-top-color: var(--color-notanalyzed);
+    }
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item--positive & {
+    background-color: var(--color-positive);
+    color: var(--white);
+
+    @nest &::after {
+      border-top-color: var(--color-positive);
+    }
+  }
+
+  @nest .horizontal-bar-sentiment-bar__item:hover & {
+    display: block;
+  }
+}
+
+.horizontal-bar-sentiment-bar__article-number {
+  top: -3px;
+  left: 0;
+  transform: scaleY(0.42);
+
+  @nest .horizontal-bar-sentiment-bar__item--negative &,
+    .horizontal-bar-sentiment-bar__item--neutral &,
+    .horizontal-bar-sentiment-bar__item--positive & {
+    color: var(--white);
+  }
+}
+
+.horizontal-bar-sentiment-clip-item:not(:last-child) {
+  border-bottom: var(--border-width-thin) solid var(--gray-light);
+}
+
+.horizontal-bar-sentiment-clip-item__title {
+  padding-right: 5rem;
+  font-size: 1.125rem;
+}
+
+.horizontal-bar-sentiment-clip-item__date {
+  top: 1rem;
+  right: 0.75rem;
+  color: var(--dark-medium-gray);
+  font-size: var(--font-size-small);
+}

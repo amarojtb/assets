@@ -1,0 +1,345 @@
+@import '../../../public/css/utils/variables.css';
+
+.c-expanded--twitter {
+  @nest & .c-expanded-sidebar__header {
+    background-color: var(--twitter-color) !important;
+  }
+
+  @nest & .c-expanded-sidebar__title {
+    line-height: inherit;
+  }
+
+  @nest & .c-expanded-main {
+    @media (--max-sm) {
+      padding-bottom: 55px;
+    }
+
+    @media (--min-md) {
+      padding-right: 70px;
+    }
+  }
+}
+
+.c-twitter-expanded__header {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.c-twitter-expanded__title {
+  font-size: 1.625rem;
+  font-weight: var(--font-weight-thin);
+  line-height: var(--line-height-reset);
+}
+
+.c-twitter-expanded__subtitle {
+  font-size: 0.825rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* -----------------------------------------------------------------------------
+ * Profile
+ * -------------------------------------------------------------------------- */
+
+.c-twitter-profile {
+  padding-bottom: 5px;
+}
+
+.c-twitter-profile__item {
+  padding: 10px 15px 5px 10px;
+}
+
+.c-twitter-profile__frame {
+  display: table;
+  width: 100%;
+  height: 150px;
+  table-layout: fixed;
+  cursor: pointer;
+}
+
+.c-twitter-profile__left-col {
+  display: table-cell;
+  width: 40px;
+  background-color: var(--twitter-color);
+  color: var(--white);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.c-twitter-profile__order {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.c-twitter-profile__ordinal {
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.c-twitter-profile__main-col {
+  display: table-cell;
+  width: 9.375rem;
+  vertical-align: top;
+}
+
+.c-twitter-profile__wrap-img {
+  position: relative;
+  height: 9.375rem;
+
+  @nest &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.15s linear;
+    background-color: transparent;
+  }
+
+  @nest
+  .c-twitter-profile__frame:hover &::before,
+  .c-twitter-profile__item.is-selected &::before {
+    background-color: #55aceecc;
+  }
+
+  @nest &::after {
+    content: '\E010';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.15s linear;
+    opacity: 0;
+    color: color(var(--twitter-color) whiteness(100%));
+    font-family: custom, sans-serif;
+    font-size: 3.25rem;
+  }
+
+  @nest
+  .c-twitter-profile__frame:hover &::after,
+  .c-twitter-profile__item.is-selected &::after {
+    opacity: 1;
+  }
+
+  @nest & svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    transform: translate(-50%, -50%);
+    fill: var(--davy-gray);
+  }
+}
+
+.c-twitter-profile__right-col {
+  display: table-cell;
+  background-color: var(--light-gray);
+  color: var(--dim-gray);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.c-twitter-profile__count {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.c-twitter-profile__tweet {
+  font-size: 1rem;
+}
+
+.c-twitter-profile__name {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.c-twitter-profile__login {
+  font-size: 0.875rem;
+}
+
+/* -----------------------------------------------------------------------------
+ * Header
+ * -------------------------------------------------------------------------- */
+
+.c-twitter-header {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  left: 10px;
+  transform: translate3d(0, -50%, 0);
+  line-height: var(--line-height-text);
+}
+
+.c-twitter-header__order {
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  background-color: var(--twitter-color);
+  color: var(--white);
+  font-size: 1.75rem;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.c-twitter-header__profile {
+  display: inline-block;
+}
+
+.c-twitter-header__name {
+  margin-top: 4px;
+  color: var(--twitter-color);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.c-twitter-header__login {
+  color: var(--dim-gray);
+  font-size: 1rem;
+}
+
+.c-twitter-header__nb-followers {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translate(0, -50%);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* -----------------------------------------------------------------------------
+ * Tweet list
+ * -------------------------------------------------------------------------- */
+
+.c-twitter-tweet__layout {
+  padding-top: 20px;
+
+  @media (--min-sm) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  @media (--min-md) {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+}
+
+.c-twitter-tweet__item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+}
+
+.c-twitter-tweet__date {
+  color: var(--twitter-color);
+  font-weight: 700;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.c-twitter-tweet__message {
+  padding: 15px;
+  font-size: 1.125rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------------
+ * Tonality
+ * -------------------------------------------------------------------------- */
+
+.c-twitter-tonality {
+  position: absolute;
+
+  @media (--max-sm) {
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+  }
+
+  @media (--min-md) {
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 100%;
+  }
+}
+
+.c-twitter-tonality__layout {
+  display: table;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.c-twitter-tonality__item {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (--max-sm) {
+    display: table-cell;
+  }
+
+  @media (--min-md) {
+    display: table-row;
+  }
+}
+
+.c-twitter-tonality__item--balanced {
+  background-color: var(--color-balanced);
+  color: var(--white);
+}
+
+.c-twitter-tonality__item--negative {
+  background-color: var(--color-negative);
+  color: var(--white);
+}
+
+.c-twitter-tonality__item--neutral {
+  background-color: var(--color-neutral);
+  color: var(--white);
+}
+
+.c-twitter-tonality__item--notanalyzed {
+  background-color: var(--color-notanalyzed);
+  color: var(--dim-gray);
+}
+
+.c-twitter-tonality__item--positive {
+  background-color: var(--color-positive);
+  color: var(--white);
+}
+
+.c-twitter-tonality__content {
+  @media (--min-md) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.c-twitter-tonality__value {
+  @media (--max-sm) {
+    font-size: 1.5rem;
+  }
+
+  @media (--min-md) {
+    font-size: 1.875rem;
+  }
+}
+
+.c-twitter-tonality__name {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}

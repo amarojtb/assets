@@ -1,0 +1,6 @@
+{
+  "name": "FileSelector",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FileSelector.jsx"
+}

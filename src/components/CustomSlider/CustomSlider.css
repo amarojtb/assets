@@ -1,0 +1,14 @@
+@import '../../public/css/utils/variables.css';
+
+.c-custom-slider {
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    width: 240px;
+}
+
+.custom-clider__label {
+    font-weight: bold;
+    color: var(--dim-gray);
+    padding-bottom: 0.5rem;
+}

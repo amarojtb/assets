@@ -1,0 +1,88 @@
+@import '../../public/css/utils/variables.css';
+
+.c-fab-button_container {
+  display: flex;
+  max-width: 250px;
+  padding: 0;
+
+  &.right {
+    @nest & .fab-actions {
+      display: flex;
+      max-width: inherit;
+      float: left;
+    }
+
+    @nest & .fab-trigger {
+      float: right;
+    }
+  }
+
+  &.left {
+    @nest & .fab-actions {
+      display: flex;
+      max-width: inherit;
+      float: right;
+    }
+
+    @nest & .fab-trigger {
+      z-index: 9;
+      float: left;
+    }
+  }
+
+  /* right transition */
+  &.collapsed.right {
+    @nest & .fab-actions {
+      visibility: hidden;
+      max-width: 0;
+      transform: translateX(100%);
+      transition: visibility 250ms, max-width 350ms, opacity 130ms, transform 350ms ease-out;
+      opacity: 0;
+    }
+  }
+
+  &.expanded.right {
+    @nest & .fab-actions {
+      z-index: 0;
+      max-width: inherit;
+      transform: translateX(0%);
+      transition: max-width 350ms, opacity 130ms, transform 350ms ease-out;
+      opacity: 1;
+    }
+  }
+
+  /* left transition */
+  &.collapsed.left {
+    @nest & .fab-actions {
+      visibility: hidden;
+      transform: translateX(-100%);
+      transition: visibility 250ms, opacity 100ms, transform 350ms ease-out;
+      opacity: 0;
+    }
+  }
+
+  &.expanded.left {
+    @nest & .fab-actions {
+      z-index: 0;
+      max-width: inherit;
+      transform: translateX(0%);
+      transition: max-width 350ms, opacity 300ms, transform 350ms ease-out;
+      opacity: 1;
+    }
+  }
+
+  /* Generic styling */
+  @nest & .fab-actions {
+    max-width: 0;
+    padding: 0 10px;
+    transition: max-width 350ms ease-out;
+
+    @nest & .fab-action {
+      margin: 0 5px;
+
+      @nest & .btn--icon {
+        padding: 0;
+      }
+    }
+  }
+}

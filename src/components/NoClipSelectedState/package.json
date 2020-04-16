@@ -1,0 +1,6 @@
+{
+  "name": "NoClipSelectedState",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NoClipSelectedState.jsx"
+}

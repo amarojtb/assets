@@ -1,0 +1,6 @@
+{
+  "name": "TinyLoader",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TinyLoader.jsx"
+}

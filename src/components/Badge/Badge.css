@@ -1,0 +1,25 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #BADGE
+   ========================================================================== */
+
+.c-badge {
+  display: inline-block;
+  margin-right: var(--spacing-xx-small);
+  padding: var(--spacing-xx-small) var(--spacing-x-small);
+  background-color: var(--gray-light);
+  font-size: var(--font-size-x-small);
+  line-height: var(--line-height-reset);
+  vertical-align: middle;
+  white-space: nowrap;
+
+  @nest &:empty {
+    padding: 0;
+  }
+}
+
+.c-badge--inverse {
+  background-color: var(--gray-darker);
+  color: var(--white);
+}

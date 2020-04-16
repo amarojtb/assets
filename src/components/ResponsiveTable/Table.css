@@ -1,0 +1,172 @@
+@import '../../public/css/utils/variables.css';
+@import 'flickity/dist/flickity.min.css';
+
+.users {
+  padding: 0.625rem 10px !important;
+  overflow-y: scroll;
+}
+
+.table-wrapper {
+  position: relative;
+  height: calc(100% - 1.2rem);
+  transform: translateX(0%);
+  background: #fff;
+  font-size: 0.75rem;
+
+  @media (--max-sm) and (orientation: portrait) {
+    height: 81vh;
+  }
+
+  @nest & .sort-icon {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+  }
+
+  @nest & .fixedHeader {
+    display: table;
+    z-index: 9;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  @nest & .flickity-prev-next-button.previous {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+  }
+
+  @nest & .flickity-prev-next-button.next {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @nest & .flickity-prev-next-button {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 55px;
+    transform: none;
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    background: hsla(0, 0%, 100%, 0.75);
+    cursor: pointer;
+  }
+
+  @nest & .flickity-viewport {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+  }
+
+  @nest & .groups-more {
+    display: inline;
+    position: absolute;
+    top: 4px;
+    right: 0;
+
+    @nest & .dropdown-show-content {
+      right: 9.5px;
+      transform: none;
+      background-color: rgba(0, 0, 0, 0.7) !important;
+
+      @nest &::before {
+        top: -10px !important;
+        left: initial;
+        border-width: 0 0 10px 10px !important;
+        border-color:
+          transparent
+          transparent
+          rgba(0, 0, 0, 0.7)
+          transparent !important;
+      }
+    }
+  }
+
+  @nest & .groups-more__item {
+    padding: 5px 10px;
+    color: #fff;
+  }
+
+  @nest & .table-fixed_column {
+    min-width: 12%;
+    float: left;
+  }
+
+  @nest & .table-scroll {
+    display: flex;
+  }
+
+  @nest & .table-scroll table {
+    display: table;
+    min-width: 22.6%;
+    max-width: 30%;
+
+    @nest & td {
+      position: relative;
+      width: 100%;
+      padding-right: 45px;
+
+      @media (--max-sm) {
+        padding-right: 10px;
+      }
+    }
+
+    @media (--max-sm) {
+      width: 50%;
+    }
+
+    @media (--max-xs) {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @nest & th, & td {
+    padding: 10px;
+
+    @nest & span.text {
+      display: inline-block;
+      max-width: 270px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+  }
+
+  @nest & th {
+    display: table-cell;
+    position: relative;
+    height: 55px;
+    padding: 0 25px;
+    border-right: solid 1px rgba(200, 200, 200, 0.6);
+    border-bottom: none;
+    color: #fff;
+    font-weight: 500;
+    line-height: 0.99rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  @nest & td {
+    font-weight: 400;
+    letter-spacing: 0.01rem;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+
+  @nest & tr:nth-child(even) {
+    background: var(--white);
+  }
+
+  @nest & tr:nth-child(odd) {
+    background: var(--gray-lighter);
+  }
+}

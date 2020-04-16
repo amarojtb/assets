@@ -1,0 +1,24 @@
+@import '../../public/css/utils/variables.css';
+
+.toggle-cmp {
+  display: inline-block;
+  position: relative;
+  width: 2rem;
+  height: 100%;
+  padding: 0;
+  border: 1px solid;
+
+  @media (--max-sm) {
+    position: absolute;
+    left: 16.25rem;
+  }
+
+  @nest &.toggle-cmp--hidden {
+    left: 0;
+  }
+
+  @nest
+  & svg {
+    color: var(--white);
+  }
+}

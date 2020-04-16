@@ -1,0 +1,5 @@
+@import '../../../Content/public/css/utils/variables.css';
+
+.c-clip-date__publication {
+  padding-left: var(--spacing-small);
+}

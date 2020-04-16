@@ -1,0 +1,296 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #TABLE
+   ========================================================================== */
+
+.c-table {
+  background-color: var(--color-background-alt);
+  font-size: inherit;
+
+  @nest
+  & th,
+  & td {
+    position: relative;
+    padding: var(--table-cell-spacing);
+    white-space: nowrap;
+  }
+
+  @nest & th {
+    font-weight: var(--font-weight-bold);
+
+    @nest &:focus {
+      outline: 0;
+    }
+  }
+
+  @nest & thead th {
+    padding: var(--table-cell-spacing);
+    color: var(--table-color-text-header);
+  }
+
+  @nest
+  &:not(.no-row-hover) tbody tr:hover,
+  &:not(.no-row-hover) tbody tr:focus {
+    outline: 0;
+
+    @nest
+    & > td,
+    & > th {
+      background-color: var(--color-background-row-hover);
+    }
+  }
+
+  @nest
+  & tbody tr.is-selected,
+  &:not(.no-row-hover) tr.is-selected:hover {
+    @nest
+    & > td,
+    & > th {
+      background-color: var(--color-background-row-selected);
+    }
+  }
+
+  @nest & .cell-wrap {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  @nest & .cell-shrink {
+    width: 1%;
+  }
+
+  @nest & .cell-buffer--left {
+    padding-left: var(--spacing-large);
+  }
+
+  @nest & .cell-buffer--right {
+    padding-right: var(--spacing-large);
+  }
+
+  @nest & tbody {
+    @nest & tr {
+      counter-increment: row-number;
+    }
+  }
+
+  @nest & .row-number {
+    @nest &::after {
+      content: counter(row-number);
+    }
+  }
+
+  @nest
+  & th:focus,
+  & [role='gridcell']:focus {
+    outline: 0;
+  }
+
+  @nest
+  & [role='gridcell']:focus,
+  & [role='gridcell'].has-focus {
+    box-shadow: var(--color-border-selection) 0 0 0 1px inset;
+  }
+
+  @nest & [role='gridcell']:active {
+    box-shadow: none;
+  }
+}
+
+.c-table--cell-buffer {
+  @nest
+  & tr > th:first-child,
+  & tr > td:first-child {
+    padding-left: var(--spacing-large);
+  }
+
+  @nest
+  & tr > th:last-child,
+  & tr > td:last-child {
+    padding-right: var(--spacing-large);
+  }
+}
+
+.c-table--bordered {
+  border-collapse: separate;
+  border-top: var(--border-width-thin) solid var(--color-border);
+  border-bottom: var(--border-width-thin) solid var(--color-border);
+
+  @nest & thead > tr + tr > th {
+    border-top: var(--border-width-thin) solid var(--color-border);
+  }
+
+  @nest
+  & tbody td,
+  & tbody th {
+    border-top: var(--border-width-thin) solid var(--color-border);
+  }
+
+  @nest
+  &:not(.no-row-hover) tbody tr:hover > td:not(.is-selected),
+  &:not(.no-row-hover) tbody tr:hover > th:not(.is-selected),
+  &:not(.no-row-hover) tbody tr:focus > td:not(.is-selected),
+  &:not(.no-row-hover) tbody tr:focus > th:not(.is-selected) {
+    box-shadow:
+      var(--color-border) 0 calc(var(--border-width-thin) * -1) 0 inset,
+      var(--color-border) 0 var(--border-width-thin) 0 inset;
+  }
+}
+
+.c-table--col-bordered {
+  @nest & td + td, & th + th, & th + td, & td + th {
+    border-left: var(--border-width-thin) solid var(--color-border);
+  }
+}
+
+.c-table--striped {
+  @nest
+  & tbody tr:nth-of-type(even) > td,
+  & tbody tr:nth-of-type(even) > th {
+    background-color: var(--color-background-row-hover);
+  }
+}
+
+.c-table--fixed-layout {
+  width: 100%;
+  table-layout: fixed;
+  white-space: nowrap;
+
+  @nest & thead {
+    background-color: var(--color-background-alt);
+  }
+
+  @nest & tbody {
+    transform: translateZ(0);
+  }
+
+  @nest & .cell-shrink {
+    width: var(--square-icon-large-boundary);
+
+    @nest &:nth-child(n) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @nest &:first-child {
+      padding-right: var(--spacing-x-small);
+      text-align: right;
+    }
+
+    @nest &:last-child {
+      padding-left: var(--spacing-x-small);
+      text-align: left;
+    }
+  }
+}
+
+.is-sortable {
+  @nest
+  & .th__action:hover,
+  & .th__action:focus,
+  &.has-focus .th__action,
+  &.has-focus .th__action:hover,
+  &.has-focus .th__action:focus {
+    background-color: var(--color-background-row-hover);
+    color: var(--color-text-link);
+
+    @nest & .icon {
+      display: inline-block;
+      fill: var(--color-text-link);
+    }
+  }
+}
+
+.th__action {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding: var(--table-cell-spacing);
+
+  @nest
+  &:focus,
+  &:hover {
+    outline: 0;
+    background-color: var(--color-background-row-hover);
+
+    @nest & .is-sortable__icon {
+      display: inline-block;
+    }
+  }
+}
+
+.th__action--form {
+  display: inline-flex;
+}
+
+.is-sortable__icon {
+  display: none;
+  width: var(--square-icon-small-content);
+  height: var(--square-icon-small-content);
+  margin-left: var(--spacing-xx-small);
+}
+
+.is-sorted {
+  @nest & .is-sortable__icon {
+    display: inline-block;
+  }
+}
+
+.c-table--resizable-cols thead th {
+  padding: 0;
+}
+
+.is-resizable {
+  @nest
+  & .th__action:hover,
+  & .th__action:focus {
+    box-shadow:
+      var(--color-border-separator-alt) calc(var(--spacing-xx-small) * -1) 0 0
+      inset;
+  }
+}
+
+.resizable {
+  max-width: 100%;
+}
+
+.resizable__handle {
+  display: block;
+  position: absolute;
+  z-index: var(--z-index-popup);
+  top: 0;
+  right: 0;
+  width: var(--spacing-xx-small);
+  height: 100%;
+  opacity: 0;
+  background: var(--color-background-button-brand);
+  cursor: col-resize;
+
+  @nest
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+  }
+}
+
+.resizable__divider {
+  position: absolute;
+  right: 0;
+  width: 1px;
+  height: 100vh;
+  background: var(--color-background-button-brand);
+}
+
+.resizable__input:focus ~ .resizable__handle {
+  opacity: 1;
+}
+
+.c-table--compact {
+  @nest
+  & th,
+  & td {
+    padding: var(--spacing-xx-small) var(--spacing-x-small);
+  }
+}

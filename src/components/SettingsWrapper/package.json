@@ -1,0 +1,6 @@
+{
+  "name": "SettingsWrapper",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SettingsWrapper.jsx"
+}

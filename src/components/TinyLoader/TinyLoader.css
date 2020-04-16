@@ -1,0 +1,51 @@
+:root {
+  --spinner-size: 2;
+  --line-color: #a74c97;
+  --line-alpha: 0.6;
+  --ring-color: #000;
+  --ring-alpha: 0.13;
+  --ring-size: 10;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  font-size: calc(var(--spinner-size) * 1em);
+}
+
+.spinner .line {
+  transform: rotate3d(0, 0, 1, 0deg);
+  transform-origin: 50% 50%;
+  animation:
+    2156ms spinner-arc ease-in-out infinite,
+    1829ms spinner-rotate linear infinite;
+  stroke-width: var(--ring-size - 3);
+  stroke-linecap: round;
+  stroke: var(--line-color);
+  opacity: var(--line-alpha * 1.7);
+  fill: none;
+}
+
+.spinner .ring {
+  stroke-width: var(--ring-size);
+  stroke: var(--ring-color);
+  opacity: var(--ring-alpha);
+  fill: none;
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate3d(0, 0, 1, 360deg); }
+}
+
+@keyframes spinner-arc {
+  from {
+    stroke-dasharray: 0 150;
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dasharray: 100 150;
+    stroke-dashoffset: -140;
+  }
+}

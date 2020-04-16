@@ -1,0 +1,6 @@
+{
+  "name": "HorizontalBar",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HorizontalBar.js"
+}

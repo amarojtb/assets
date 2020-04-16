@@ -1,0 +1,97 @@
+@import '../../../public/css/utils/variables.css';
+
+.mono-horizontal-bar {
+  padding-top: 3.75rem;
+}
+
+.mono-horizontal-bar--is-empty {
+  @nest & .mono-horizontal-bar__bar {
+    border-style: solid;
+    border-color: var(--silver);
+  }
+
+  @nest & .mono-horizontal-bar__bar--top {
+    border-width: var(--border-width-thin) var(--border-width-thin) 0;
+  }
+
+  @nest & .mono-horizontal-bar__bar--front {
+    border-width: var(--border-width-thin);
+  }
+}
+
+.mono-horizontal-bar__bars {
+  position: relative;
+  width: 90%;
+  height: 2.5rem;
+  margin-left: 10%;
+  perspective: 37.5rem;
+}
+
+.mono-horizontal-bar__bar {
+  width: inherit;
+  height: inherit;
+}
+
+.mono-horizontal-bar__bar--front {
+  transform: translate3d(0, 0.5rem, 1.25rem);
+}
+
+.mono-horizontal-bar__bar--top {
+  transform: rotateX(70deg) translate3d(0, -0.3125rem, 1.125rem);
+  border-bottom: var(--border-width-thin) solid var(--silver);
+  outline: 1px solid transparent; /* Anti-aliasing */
+}
+
+.mono-horizontal-bar__shadow-container {
+  width: 93.2%;
+  height: 3.125rem;
+  margin: -0.25rem auto 0 6.8%;
+  perspective: 37.5rem;
+}
+
+.mono-horizontal-bar__shadow {
+  width: inherit;
+  height: inherit;
+  transform: rotateX(60deg);
+  background:
+    linear-gradient(
+      to bottom,
+      var(--gray-light),
+      var(--gray-lighter)
+    );
+}
+
+.mono-horizontal-bar__percent {
+  color: var(--gray-dark);
+  font-size: var(--font-size-x-large);
+}
+
+.mono-horizontal-bar__legend-bar {
+  height: var(--spacing-xx-small);
+}
+
+.mono-horizontal-bar__legend-field {
+  font-size: var(--font-size-small);
+}
+
+.c-expanded--mono-horizontal-bar .mono-horizontal-bar {
+  padding-top: 8.75rem;
+
+  @nest & .mono-horizontal-bar__bars {
+    height: 3.75rem;
+  }
+
+  @nest & .mono-horizontal-bar__bar--top {
+    transform: rotateX(70deg) translate3d(0, -1.1875rem, 1.75rem);
+  }
+
+  @nest & .mono-horizontal-bar__shadow-container {
+    width: 93.8%;
+    height: 4.375rem;
+    margin: -0.5625rem auto 0 6.2%;
+  }
+
+  @nest & .mono-horizontal-bar__legend-field {
+    font-size: var(--font-size-x-large);
+  }
+}

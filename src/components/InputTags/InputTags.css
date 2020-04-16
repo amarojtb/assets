@@ -1,0 +1,53 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #INPUT TAGS
+   ========================================================================== */
+
+.c-input-tags {
+  min-height: calc(var(--height-input) + var(--border-width-thin) * 2);
+  padding: 1px var(--spacing-xx-small);
+  overflow: hidden;
+  transition:
+    border var(--duration-quickly) linear,
+    background-color var(--duration-quickly) linear;
+  border: var(--border-width-thin) solid var(--color-border-input);
+  background-color: var(--color-background-input);
+
+  @nest &.has-focus {
+    border-color: var(--color-border-input-active);
+    outline: 0;
+    background-color: var(--color-background-input-active);
+    box-shadow: var(--shadow-button-focus);
+  }
+}
+
+.c-input-tags__tag {
+  display: inline-block;
+  margin-top: var(--spacing-xxx-small);
+  margin-right: var(--spacing-xx-small);
+  margin-bottom: var(--spacing-xxx-small);
+  padding: var(--spacing-xxx-small) var(--spacing-xx-small);
+  border: var(--border-width-thin) solid var(--silver);
+  background-color: var(--gray-light);
+  font-size: var(--font-size-medium);
+
+  @nest & a::before {
+    content: ' \D7';
+    color: var(--dim-gray);
+  }
+}
+
+.c-input-tags__remove {
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+}
+
+.c-input-tags__input {
+  height: calc(var(--height-input) - var(--border-width-thin) * 2);
+  padding: 0 var(--spacing-x-small);
+  border: 0;
+  outline: none;
+  background: transparent;
+  line-height: 1.75rem;
+}

@@ -1,0 +1,36 @@
+@import '../../public/css/utils/variables.css';
+
+.radial-progress {
+  position: relative;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--silver);
+}
+
+.radial-progress__mask {
+  position: absolute;
+  transition: transform 1s;
+  border-radius: var(--border-radius-circle);
+}
+
+.radial-progress__fill {
+  position: absolute;
+  transition: transform 1s;
+  border-radius: var(--border-radius-circle);
+}
+
+.radial-progress__inset {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--gray-light);
+}
+
+.radial-progress__percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: var(--font-weight-bold);
+}

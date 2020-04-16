@@ -1,0 +1,175 @@
+@import '../../public/css/utils/variables.css';
+
+/* ==========================================================================
+   #DATE PICKER
+   ========================================================================== */
+
+.c-date-picker {
+  display: inline-block;
+}
+
+.c-date-picker__wrapper {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap;
+  justify-content: center;
+  user-select: none;
+}
+
+.c-date-picker__month {
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+  user-select: none;
+}
+
+.c-date-picker__nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12.5rem;
+}
+
+.c-date-picker__nav-button {
+  position: relative;
+  z-index: var(--z-index-default);
+}
+
+.c-date-picker__nav-button--next {
+  float: right;
+}
+
+.c-date-picker__nav-button--interaction-disabled {
+  display: none;
+}
+
+.c-date-picker__caption {
+  display: table-caption;
+}
+
+.c-date-picker__caption-select {
+  display: inline-block;
+  position: relative;
+}
+
+.c-date-picker__caption-select--month {
+  width: 12.5rem;
+  text-align: center;
+
+  @nest & .c-select_container {
+    display: inline-block;
+    width: 8rem;
+  }
+}
+
+.c-date-picker__caption-select--year {
+  position: absolute;
+  right: var(--spacing-x-small);
+}
+
+.c-date-picker__weekdays {
+  display: table-header-group;
+}
+
+.c-date-picker__weekdays-row {
+  display: table-row;
+}
+
+.c-date-picker__weekday {
+  display: table-cell;
+  padding: var(--spacing-x-small);
+  font-size: var(--font-size-medium-a);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+
+  @nest & > abbr {
+    text-decoration: none;
+  }
+}
+
+.c-date-picker__body {
+  display: table-row-group;
+}
+
+.c-date-picker__week {
+  display: table-row;
+}
+
+.c-date-picker__day {
+  display: table-cell;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: var(--spacing-xx-small);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+
+  @nest & > span {
+    display: block;
+    position: relative;
+    width: var(--square-icon-medium-boundary);
+    min-width: var(--square-icon-medium-boundary);
+    height: var(--square-icon-medium-boundary);
+    margin: auto;
+    border-radius: var(--border-radius-circle);
+    line-height: var(--square-icon-medium-boundary);
+  }
+
+  @nest &:hover > span {
+    background-color: var(--gray-light);
+  }
+}
+
+.c-date-picker__week-number {
+  display: table-cell;
+  min-width: var(--square-icon-medium-content);
+  padding: var(--spacing-x-small);
+  color: var(--gray);
+  font-size: var(--font-size-small);
+  text-align: right;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.c-date-picker__interaction-disabled .c-date-picker__day {
+  cursor: default;
+}
+
+.c-date-picker__footer {
+  display: table-caption;
+  padding-top: var(--spacing-x-small);
+  caption-side: bottom;
+}
+
+.c-date-picker__today-button {
+  border: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  font-size: var(--font-size-medium-a);
+  cursor: pointer;
+}
+
+.c-date-picker__day--today {
+  @nest & > span {
+    background-color: var(--gray-light);
+  }
+}
+
+.c-date-picker__day--disabled {
+  color: var(--light-gray);
+  cursor: default;
+}
+
+.c-date-picker__day--outside {
+  color: var(--light-gray);
+  cursor: default;
+}
+
+.c-date-picker__day--selected {
+  @nest &:not(.c-date-picker__day--disabled, .c-date-picker__day--outside) {
+    @nest & > span {
+      background-color: var(--selection-color);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../../public/css/utils/variables.css';
+
+.c-linear-widget_wrapper {
+  height: 100%;
+}
+
+.c-linear-widget-legend {
+  height: 1.5rem;
+  padding-right: var(--spacing-medium);
+  padding-left: var(--spacing-medium);
+}
+
+.c-linear-widget-legend__list {
+  margin-bottom: 0;
+}
+
+.c-linear-widget-legend__item {
+  display: inline-block;
+  position: relative;
+  font-size: var(--font-size-small);
+  text-align: center;
+}
+
+.c-linear-widget-legend__item-color {
+  display: inline-block;
+  width: var(--square-icon-small-content);
+  height: var(--square-icon-small-content);
+  margin-right: var(--spacing-xx-small);
+  vertical-align: middle;
+}

@@ -1,0 +1,19 @@
+@import '../../../public/css/utils/variables.css';
+
+.key-figure__layout {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+}
+
+.key-figure__number {
+  line-height: 0.8;
+}
+
+.c-widget--key-figure-weighted-ave .key-figure__label {
+  font-size: 2rem;
+}
+
+.c-expanded--key-figure .key-figure__layout {
+  font-size: 4.375rem;
+}

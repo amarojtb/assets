@@ -1,0 +1,138 @@
+@import '../../../../../Content/public/css/utils/variables.css';
+
+.c-filters-applied {
+  margin: -23px -17px 10px;
+  padding: 7px 0 0 0;
+  border-bottom: solid 1px var(--gray-medium-light);
+  line-height: 1rem;
+
+  @nest & .filters-applied__heading {
+    padding: 5px 5px 5px 15px;
+    background: var(--dim-gray);
+    color: var(--white);
+    font-size: 1.3em;
+
+    @nest & h3 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.5em;
+    }
+
+    @nest & .c-filters-applied_collapser {
+      float: right;
+    }
+  }
+
+  @nest & .c-filters-applied_content__wrapper {
+    max-height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+  }
+
+  @nest & .c-filters-applied_content.expanded {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 450ms ease-out;
+  }
+
+  @nest & .c-filters-applied_content.collapsed {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 450ms ease-out;
+  }
+
+  @nest & .c-filters-applied_clear {
+    float: right;
+  }
+
+  @nest & .filter-applied__group {
+    @nest & .title {
+      margin: 7px 0;
+      font-weight: 700;
+    }
+
+    @nest & .filter-applied__group__list {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @nest & li {
+        display: inline-block;
+        position: relative;
+        margin: 5px 5px 5px 0;
+        padding: 2px 26px 2px 10px;
+        border: solid 1px var(--light-silver);
+        border-radius: 12px;
+        background: var(--gray-medium-light);
+        color: var(--gray-darker);
+        font-size: small;
+
+        @nest &:last-child {
+          margin: 5px 0 5px 0;
+        }
+
+        @nest & .filter-applied__group__list-close {
+          position: absolute;
+          top: -1px;
+          right: 0;
+          width: 22px;
+          height: 22px;
+          padding: 0 7px 0 5px;
+          line-height: 19px;
+          text-align: center;
+          text-indent: 2px;
+          cursor: pointer;
+
+          @nest &:hover {
+            border-radius: 50%;
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  @nest & .c-dropdown-save_search {
+    float: right;
+
+    @nest & .drop-down-icon {
+      display: none;
+    }
+
+    @nest & .dropdown-show-content {
+      right: -35px;
+      width: 250px;
+      padding: 10px;
+      transform: unset;
+      font-size: 0.8em;
+
+      @nest &:before {
+        right: 18%;
+        left: auto;
+      }
+    }
+  }
+
+  /*
+  *----------------------------------------------------------------
+  * SAVE FILTER COMPONENT
+  *---------------------------------------------------------------
+  */
+
+  @nest & .c-filters-applied__save-dropdown {
+    @nest & .create-search_title {
+      display: inline-block;
+      margin-right: 0.75rem;
+      padding-bottom: 0.125rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      line-height: 1.428571429;
+      text-transform: capitalize;
+    }
+  }
+}

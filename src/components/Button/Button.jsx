@@ -1,6 +1,8 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { v4 as uuidv4 } from "uuid";
+
 import './Button.css';
 
 const propTypes = {
@@ -14,34 +16,36 @@ const propTypes = {
   onMouseLeave: PropTypes.func,
   onMouseDown: PropTypes.func,
   onDoubleClick: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'lg']),
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
   title: PropTypes.string,
-  type: PropTypes.oneOf([
-    'close',
-    'danger',
-    'default',
-    'icon',
-    'info',
-    'link',
-    'primary',
-    'success',
-    'warning',
-  ]),
+  ariaLabel: PropTypes.string,
+  buttonStyle: PropTypes.oneOf([
+    "close",
+    "danger",
+    "default",
+    "icon",
+    "info",
+    "link",
+    "primary",
+    "success",
+    "warning",
+  ]).isRequired,
 };
 const defaultProps = {
   children: null,
-  className: '',
+  className: "",
   disabled: false,
-  id: '',
-  name: 'button',
+  id: uuidv4(),
+  name: uuidv4(),
   onClick() {},
   onMouseEnter() {},
   onMouseLeave() {},
   onMouseDown() {},
   onDoubleClick() {},
-  size: null,
-  title: 'button',
-  type: null,
+  size: "md",
+  title: "",
+  type: "button",
+  ariaLabel: "",
 };
 
 const Button = ({
@@ -77,7 +81,7 @@ const Button = ({
       onMouseDown={onMouseDown}
       onDoubleClick={onDoubleClick}
       onClick={handleClick}
-      type="button"
+      type={type}
       title={title}
       name={name}
     >

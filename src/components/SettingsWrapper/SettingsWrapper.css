@@ -1,0 +1,10 @@
+@import '../../public/css/utils/variables.css';
+
+.settings-wrapper__label {
+    font-size: 1rem;
+    font-weight: 700;
+    display: block;
+    padding-top: var(--spacing-xx-small);
+    margin-bottom: var(--spacing-medium);
+    border-bottom: solid 1px var(--light-silver);
+}

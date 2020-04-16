@@ -1,0 +1,8 @@
+@import '../../public/css/utils/variables.css';
+
+.c-button-group {
+  display: inline-flex;
+  @nest & .btn + .btn {
+    margin-left: var(--spacing-medium);
+  }
+}

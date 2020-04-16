@@ -8,7 +8,7 @@ import Svg from "./components/Svg/Svg";
 import Link from "./components/Link/Link";
 import Button from "./components/Button/Button";
 
-import './App.css';
+// import './App.css';
 
 library.add(faTwitter, fas);
 

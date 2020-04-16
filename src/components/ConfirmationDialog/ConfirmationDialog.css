@@ -1,0 +1,13 @@
+@import '../../public/css/utils/variables.css';
+
+.c-confirmation-dialog {
+  @nest & .text-center {
+    font-size: var(--font-size-large);
+    font-weight: 300 !important;
+  }
+
+  @nest & .modal__body {
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+  }
+}

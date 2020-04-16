@@ -1,0 +1,55 @@
+@import '../../../Content/public/css/utils/variables.css';
+
+/* ==========================================================================
+   #NO CLIP SELECTED STATE
+   ========================================================================== */
+
+.c-no-clip-selected-state {
+  height: 100%;
+  padding: var(--spacing-x-large);
+  background-color: var(--gray-light);
+  color: var(--light-gray);
+}
+
+.c-no-clip-selected-state__content {
+  position: relative;
+  height: 100%;
+  min-height: 26rem;
+  padding-top: 3.75rem;
+  border: 3px dashed var(--silver);
+  text-align: center;
+}
+
+.c-no-clip-selected-state__icon {
+  width: 6rem;
+  height: 6rem;
+}
+
+.c-no-clip-selected-state__text {
+  font-weight: var(--font-weight-thin);
+  text-transform: uppercase;
+
+  @media (--max-xs) {
+    font-size: 1.875rem;
+  }
+
+  @media (--min-sm) {
+    font-size: 2.625rem;
+  }
+}
+
+.c-no-clip-selected-state__footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 85%;
+  max-width: 100%;
+  transform: translateX(-50%);
+}
+
+.c-no-clip-selected-state__media-icon {
+  width: 20%;
+  height: 20%;
+  padding-right: 4%;
+  padding-left: 4%;
+}

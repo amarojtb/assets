@@ -1,0 +1,6 @@
+{
+  "name": "TwitterWidget",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TwitterWidget.jsx"
+}
