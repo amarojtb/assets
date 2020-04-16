@@ -1,0 +1,48 @@
+.icon {
+  fill: currentColor;
+}
+
+.icon--xx-small {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.icon--x-small {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.icon--small {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.icon--medium {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon--large {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.icon--x-large {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon--xx-large {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon--xxx-large {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.icon--xxxx-large {
+  width: 3.75rem;
+  height: 3.75rem;
+}

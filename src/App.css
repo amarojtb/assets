@@ -1,0 +1,69 @@
+html {
+  height: 100%;
+  background: #3023ae;
+  background: -moz-linear-gradient(-45deg, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #3023ae), color-stop(100%, #c86dd7));
+  background: -webkit-linear-gradient(-45deg, #3023ae 0%, #c86dd7 100%);
+  background: -o-linear-gradient(-45deg, #3023ae 0%, #c86dd7 100%);
+  background: -ms-linear-gradient(-45deg, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(135deg, #3023ae 0%, #c86dd7 100%);
+  background-attachment: fixed;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+a {
+  color: #fff;
+}
+
+ul {
+  background: #fff;
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+  list-style: none;
+  padding: 0;
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.37);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.37);
+}
+
+ul li {
+  text-align: center;
+  width: 10%;
+  height: 100px;
+  line-height: 100px;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+ul li img {
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+}
+
+.social-icons {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff !important;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+}
+
+.social-icons a img {
+  width: 24px;
+}
